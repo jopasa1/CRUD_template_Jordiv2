@@ -1,5 +1,4 @@
 
-import 'dart:ffi';
 
 import 'package:crud_framework/CRUD_base/CRUD_view_base.dart';
 import 'package:crud_framework/models/library_model.dart';
@@ -26,8 +25,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/author_list': (context) => CRUDListBase<Author>(
-            itemBuilder: createCards, addItemRoute: '', viewItemRoute: '/author_view'),
-        // '/author_view': (context) => CRUDViewBase<Author>(item:Author(1,"Nombre","Apellido"),detailedView: detailDialog,editFormView: CRUD_View_Author(),)
+            itemBuilder: createCards, addItemRoute: '/author_add', viewItemRoute: '/author_view'),
+        '/author_add': (context) => CRUDViewBase<Author>(detailedView: detailDialog,editFormView: CRUD_View_Author(),)
       },
       onGenerateRoute: (routeSettings) {
         switch (routeSettings.name) {

@@ -28,7 +28,6 @@ class CRUDModelBase<T,S extends Item<T>> {
       throw ArgumentError("Ja existeix un item amb la clau $key");
     }
     datos[key]=elItem;
-
   }
 
   void updateItem(S item) {
