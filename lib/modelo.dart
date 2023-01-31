@@ -11,10 +11,12 @@ class Modelo {
 
   Modelo._internal();
 
+  final CRUD_Author crudAuthor = CRUD_Author();
+
   void add<T>(T item) {
     switch (T) {
       case Author:{
-        CRUDModelBase().addItem(item as Author);
+        crudAuthor.addItem(item as Author);
       }break;
       default:
         throw UnimplementedError("Type ${T.toString()} not supported.");
@@ -37,7 +39,7 @@ class Modelo {
     switch (T) {
       case Author:{
         List<Author> authors = [];
-        Map<int, Author> datos = CRUDModelBase().datos.cast();
+        Map<int, Author> datos = crudAuthor.datos;
 
         datos.forEach((k, value) {print(value.name);authors.add(value);});
 

@@ -25,28 +25,32 @@ class Author extends Item<int>{
   }
 }
 
-// class CRUD_Author implements CRUDModelBase<int,Author>{
-//
-//   Map<int,Author> _datos ={
-//     1:Author(1,"Pedro","Martin"),
-//     2:Author(2,"Juan","Gonzalez"),
-//   };
-//
-//   @override
-//   void addItem(elItem) {
-//     // TODO: implement addItem
-//
-//   }
-//
-//   @override
-//   // TODO: implement datos
-//   Map<int,Author> get datos => _datos;
-//
-//   @override
-//   void updateItem(item) {
-//     // TODO: implement updateItem
-//   }
-// }
+class CRUD_Author implements CRUDModelBase<int,Author>{
+
+
+  Map<int,Author> _datos ={
+    1:Author(1,"Pedro","Martin"),
+    2:Author(2,"Juan","Gonzalez"),
+  };
+
+  @override
+  void addItem(elItem) {
+    int key=elItem.key;
+    if (_datos.containsKey(key)) {
+      throw ArgumentError("Ja existeix un item amb la clau $key");
+    }
+    _datos[key]=elItem;
+  }
+
+  @override
+  // TODO: implement datos
+  Map<int,Author> get datos => _datos;
+
+  @override
+  void updateItem(item) {
+    // TODO: implement updateItem
+  }
+}
 
 class CRUD_View_Author  extends CRUDFormulari<Author>{
   @override
