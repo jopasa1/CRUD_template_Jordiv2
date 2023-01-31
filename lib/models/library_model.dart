@@ -53,6 +53,8 @@ class CRUD_Author implements CRUDModelBase<int,Author>{
 }
 
 class CRUD_View_Author  extends CRUDFormulari<Author>{
+  CRUD_View_Author({super.key,this.oAuthor});
+  final Author? oAuthor;
   @override
   State<StatefulWidget> createState() => _CRUD_View_Author_State();
   String name = "";

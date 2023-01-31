@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (context) =>
                   CRUDViewBase<Author>(item: routeSettings.arguments as Author,
                     detailedView: detailDialog,
-                    editFormView: CRUD_View_Author(),));
+                    editFormView: CRUD_View_Author(oAuthor: routeSettings.arguments as Author,),));
             }
         }
         return null;
